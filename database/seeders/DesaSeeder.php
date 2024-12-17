@@ -43,6 +43,11 @@ class DesaSeeder extends Seeder
             ['kode_desa' => '332606001', 'nama_desa' => 'Siwalan', 'kode_kecamatan' => '332606', 'kecamatan_id' => 6],
             ['kode_desa' => '332606002', 'nama_desa' => 'Siwalan Tengah', 'kode_kecamatan' => '332606', 'kecamatan_id' => 6],
             ['kode_desa' => '332606003', 'nama_desa' => 'Siwalan Timur', 'kode_kecamatan' => '332606', 'kecamatan_id' => 6],
+
+            // Kecamatan Tengah (kode: 332607)
+            ['kode_desa' => '332607001', 'nama_desa' => 'Tengah', 'kode_kecamatan' => '332607', 'kecamatan_id' => 7],
+            ['kode_desa' => '332607002', 'nama_desa' => 'Tengah Timur', 'kode_kecamatan' => '332607', 'kecamatan_id' => 7],
+            ['kode_desa' => '332607003', 'nama_desa' => 'Tengah Barat', 'kode_kecamatan' => '332607', 'kecamatan_id' => 7],
             
             // Tambahkan lebih banyak desa di sini untuk semua kecamatan (hingga 200+ data)
         ];
