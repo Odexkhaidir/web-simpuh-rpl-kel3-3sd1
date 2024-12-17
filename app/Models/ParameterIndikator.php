@@ -15,8 +15,6 @@ class ParameterIndikator extends Model
      *
      * @var array
      */
-    protected $table = 'parameter_indikator';
-
     protected $fillable = [
         'kode_parameter_indikator',
         'nama_parameter_indikator',

@@ -29,8 +29,7 @@ class SubIndikatorFactory extends Factory
             'persentase' => $this->faker->numberBetween(-10000, 10000),
             'versi' => $this->faker->word(),
             'kode_indikator' => $this->faker->numberBetween(-10000, 10000),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'timestamp' => $this->faker->dateTime(),
             'indikator_id' => Indikator::factory(),
         ];
     }

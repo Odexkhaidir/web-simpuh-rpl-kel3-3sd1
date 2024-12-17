@@ -15,8 +15,6 @@ class ParameterUmum extends Model
      *
      * @var array
      */
-    protected $table = 'parameter_umum';
-
     protected $fillable = [
         'kode_parameter_umum',
         'nama_parameter_umum',

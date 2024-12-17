@@ -14,8 +14,6 @@ class Notifikasi extends Model
      *
      * @var array
      */
-    protected $table = 'notifikasi';
-
     protected $fillable = [
         'kode_notifikasi',
         'timestamp',

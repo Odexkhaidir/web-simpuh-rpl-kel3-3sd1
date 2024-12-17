@@ -49,7 +49,7 @@ class DesaSeeder extends Seeder
 
         // Insert ke database
         foreach ($desas as $desa) {
-            DB::table('desa')->insert([
+            DB::table('desas')->insert([
                 'kode_desa' => $desa['kode_desa'],
                 'nama_desa' => $desa['nama_desa'],
                 'kode_kecamatan' => $desa['kode_kecamatan'],
