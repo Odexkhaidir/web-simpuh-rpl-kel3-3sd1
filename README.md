@@ -20,8 +20,6 @@ Website ini dikembangkan untuk membantu masyarakat Kabupaten Pekalongan dalam me
 
 3. **Fitur Komunikasi**  
    - **Forum Diskusi**: Masyarakat dapat berpartisipasi aktif dengan berdiskusi, menyampaikan kritik, saran, atau laporan terkait kondisi kawasan.  
-   - **Chatbot**: Memberikan layanan otomatis untuk menjawab pertanyaan dasar mengenai kategori kawasan atau program pemerintah.  
-
 ---
 
 ### **Manfaat Website**  
@@ -63,12 +61,18 @@ Dengan komitmen untuk meningkatkan keterbukaan dan partisipasi masyarakat, websi
 
 ### Persiapan Laravel: 
 Laragon - https://laragon.org/download/
+
 PHP (download .zip) - https://www.php.net/downloads.php (cari v8.1+ kecuali 8.4 karena masih error)  
+
 Node JS (buat npm) - https://nodejs.org/en/download/prebuilt-installer/current 
+
 Tutorial instalasi - [Belajar Laravel 11 | 2. Instalasi & Konfigurasi](https://www.youtube.com/watch?v=nW60yGRoUrs&list=PLFIM0718LjIW1Xb7cVj7LdAr32ATDQMdr&index=2)
 
 ### Tutorial Laravel Filament v3:
 Filament Laravel - https://filamentphp.com/docs/3.x/panels/installation
+
 Video Tutorial - 
+
 [Introduction and Installation](https://www.youtube.com/watch?v=K5SR76KyWT0&list=PLyqDBCxAsB_Tan60LTYv9rHKIlggEzQIk) -> Bahasa Indonesia
+
 [Introduction to Filament] (https://www.youtube.com/watch?v=6c4jVLWmDYU) -> Lebih lengkap tapi Bahasa Inggris
