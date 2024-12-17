@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-# simpuh-web-template
+# Apa itu SIMPUH?
 Web dari Sistem Monitoring Penanganan Kumuh atau SIMPUH dengan menggunakan framework Laravel, Alpine.js, Livewire, dan juga Tailwind.css yang disediakan oleh Filament Laravel 
-=======
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -33,40 +32,16 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Installation & Configuration
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Persiapan Laravel: 
+Laragon - https://laragon.org/download/
+PHP (download .zip) - https://www.php.net/downloads.php (cari v8.1+ kecuali 8.4 karena masih error)  
+Node JS (buat npm) - https://nodejs.org/en/download/prebuilt-installer/current 
+Tutorial instalasi - [Belajar Laravel 11 | 2. Instalasi & Konfigurasi](https://www.youtube.com/watch?v=nW60yGRoUrs&list=PLFIM0718LjIW1Xb7cVj7LdAr32ATDQMdr&index=2)
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# simpuh-web-template" 
->>>>>>> d8b3ac8 (first commit)
+### Tutorial Laravel Filament v3:
+Filament Laravel - https://filamentphp.com/docs/3.x/panels/installation
+Video Tutorial - 
+[Introduction and Installation](https://www.youtube.com/watch?v=K5SR76KyWT0&list=PLyqDBCxAsB_Tan60LTYv9rHKIlggEzQIk) -> Bahasa Indonesia
+[Introduction to Filament] (https://www.youtube.com/watch?v=6c4jVLWmDYU) -> Lebih lengkap tapi Bahasa Inggris
