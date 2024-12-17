@@ -1,0 +1,162 @@
+models:
+  # User:
+  #   kode_user: integer, primary, autoIncrement
+  #   email: string
+  #   nama_depan: string
+  #   nama_belakang: string
+  #   nomor_telepon: string
+  #   password: string
+  #   jenis_kelamin: enum:laki-laki,perempuan
+  #   photo_profil: text
+  #   role: enum:super_admin,admin_desa,user
+  #   relationships:
+  #     hasMany: Notifikasi, Laporan
+
+  Notifikasi:
+    kode_notifikasi: integer, primary, autoIncrement
+    timestamp: datetime
+    detail_notifikasi: string
+    kode_user: integer
+
+  Laporan:
+    kode_laporan: integer, primary, autoIncrement
+    timestamp: datetime
+    isi_laporan: string
+    photo_bukti: string
+    status_laporan: string
+    kode_user: integer
+    kode_desa: integer
+    relationships:
+      belongsTo: Desa
+
+  Kecamatan:
+    kode_kecamatan: integer, primary, autoIncrement
+    nama_kecamatan: string
+    relationships:
+      hasMany: Desa
+
+  Desa:
+    kode_desa: integer, primary, autoIncrement
+    nama_desa: string
+    kode_kecamatan: integer
+    relationships:
+      belongsTo: Kecamatan
+      hasMany: Indikator, SaranPenanganan, ParameterUmum, OutputKekumuhan, Laporan
+
+  SaranPenanganan:
+    kode_saran_penanganan: integer, primary, autoIncrement
+    saran_penanganan: text
+    kode_desa: integer
+    relationships:
+      belongsTo: Desa
+
+  Indikator:
+    kode_indikator: integer, primary, autoIncrement
+    nama_indikator: string
+    deskripsi: text
+    persentase: integer
+    tahun: integer
+    kode_desa: integer
+    timestamp: datetime
+    relationships:
+      belongsTo: Desa
+      hasMany: SubIndikator, ParameterIndikator
+
+  SubIndikator:
+    kode_sub_indikator: integer, primary, autoIncrement
+    nama_sub_indikator: string
+    nilai: integer
+    satuan: string
+    persentase: integer
+    versi: string
+    kode_indikator: integer
+    timestamp: datetime
+    relationships:
+      belongsTo: Indikator
+
+  ParameterIndikator:
+    kode_parameter_indikator: integer, primary, autoIncrement
+    nama_parameter_indikator: string
+    nilai: integer
+    satuan: string
+    kode_indikator: integer
+    relationships:
+      belongsTo: Indikator
+
+  ParameterUmum:
+    kode_parameter_umum: integer, primary, autoIncrement
+    nama_parameter_umum: string
+    nilai: integer
+    satuan: string
+    tahun: integer
+    kode_desa: integer
+    relationships:
+      belongsTo: Desa
+
+  OutputKekumuhan:
+    kode_output: integer, primary, autoIncrement
+    indeks_kumuh: integer
+    status_kumuh: string
+    kontribusi_penanganan: float
+    tahun: integer
+    kode_desa: integer
+    relationships:
+      belongsTo: Desa
+
+# controllers:
+#   UserController:
+#     resource: User
+#     isAccountValid:
+#       query: where:email
+
+#   AdminController:
+#     resource: Notifikasi
+#     notifyNewLaporan:
+#       store: create
+
+#   DesaController:
+#     resource: Desa
+#     getDataDesa:
+#       query: with:indikator
+#     saveNewData:
+#       store: create
+#     updateData:
+#       update: update
+#     removeData:
+#       destroy: delete
+#     fetchUserIndikator:
+#       query: where:kode_desa
+#     retrieveData:
+#       query: Desa all
+#     setSaranPenanganan:
+#       store: create
+
+#   KecamatanController:
+#     resource: Kecamatan
+#     getDataKecamatan:
+#       query: where:kode_kecamatan
+#     setSaranPenanganan:
+#       store: create
+
+#   SaranPenangananController:
+#     resource: SaranPenanganan
+#     saveSaran:
+#       store: create
+
+#   IndikatorController:
+#     resource: Indikator
+#     getIndikator:
+#       query: where:tahun
+#     inputIndikator:
+#       store: create
+#     editIndikator:
+#       update: update
+#     deleteIndikator:
+#       destroy: delete
+
+#   OutputKekumuhanController:
+#     resource: OutputKekumuhan
+#     getOutput:
+#       query: where:kode_desa
+#     setOutput:
+#       store: create

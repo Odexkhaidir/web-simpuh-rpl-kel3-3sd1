@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Filament\Resources\SubIndikatorResource\Pages;
+
+use App\Filament\Resources\SubIndikatorResource;
+use Filament\Actions;
+use Filament\Resources\Pages\CreateRecord;
+
+class CreateSubIndikator extends CreateRecord
+{
+    protected static string $resource = SubIndikatorResource::class;
+}
