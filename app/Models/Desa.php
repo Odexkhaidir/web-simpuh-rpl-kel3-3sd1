@@ -16,8 +16,6 @@ class Desa extends Model
      *
      * @var array
      */
-    protected $table = 'desa';
-
     protected $fillable = [
         'kode_desa',
         'nama_desa',
@@ -40,27 +38,27 @@ class Desa extends Model
         return $this->belongsTo(Kecamatan::class);
     }
 
-    public function indikator(): HasMany
+    public function indikators(): HasMany
     {
         return $this->hasMany(Indikator::class);
     }
 
-    public function saranPenanganan(): HasMany
+    public function saranPenanganans(): HasMany
     {
         return $this->hasMany(SaranPenanganan::class);
     }
 
-    public function parameterUmum(): HasMany
+    public function parameterUmums(): HasMany
     {
         return $this->hasMany(ParameterUmum::class);
     }
 
-    public function outputKekumuhan(): HasMany
+    public function outputKekumuhans(): HasMany
     {
         return $this->hasMany(OutputKekumuhan::class);
     }
 
-    public function laporan(): HasMany
+    public function laporans(): HasMany
     {
         return $this->hasMany(Laporan::class);
     }

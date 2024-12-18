@@ -15,8 +15,6 @@ class Laporan extends Model
      *
      * @var array
      */
-    protected $table = 'laporan';
-
     protected $fillable = [
         'kode_laporan',
         'timestamp',

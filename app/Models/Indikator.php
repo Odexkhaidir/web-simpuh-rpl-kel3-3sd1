@@ -16,8 +16,6 @@ class Indikator extends Model
      *
      * @var array
      */
-    protected $table = 'indikator';
-
     protected $fillable = [
         'kode_indikator',
         'nama_indikator',
@@ -25,6 +23,7 @@ class Indikator extends Model
         'persentase',
         'tahun',
         'kode_desa',
+        'timestamp',
         'desa_id',
     ];
 
@@ -35,8 +34,7 @@ class Indikator extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'timestamp' => 'datetime',
         'desa_id' => 'integer',
     ];
 
@@ -47,7 +45,7 @@ class Indikator extends Model
 
     public function subIndikators(): HasMany
     {
-        return $this->hasMany(SubIndikator::class);
+        return $this->hasMany(SubIndikator::class, 'kode_indikator', 'id');
     }
 
     public function parameterIndikators(): HasMany

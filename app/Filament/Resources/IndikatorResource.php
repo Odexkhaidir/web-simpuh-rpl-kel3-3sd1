@@ -50,11 +50,11 @@ class IndikatorResource extends Resource
                 Forms\Components\TextInput::make('tahun')
                     ->required()
                     ->numeric(),
-                Forms\Components\Select::make('desa_id')
-                    ->relationship('desa', 'nama_desa')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
+                // Forms\Components\Select::make('kode_desa')
+                //     ->relationship('desa', 'nama_desa')
+                //     ->searchable()
+                //     ->preload()
+                //     ->required(),
             ]);
     }
 

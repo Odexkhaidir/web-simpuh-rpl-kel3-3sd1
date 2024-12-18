@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SubIndikator extends Model
 {
@@ -15,16 +16,15 @@ class SubIndikator extends Model
      *
      * @var array
      */
-    protected $table = 'sub_indikator';
-    
     protected $fillable = [
-        'kode_sub_indikator',
         'nama_sub_indikator',
         'nilai',
         'satuan',
         'persentase',
         'versi',
         'kode_indikator',
+        'kode_desa',
+        'timestamp',
         'indikator_id',
     ];
 
@@ -35,13 +35,17 @@ class SubIndikator extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'timestamp' => 'datetime',
         'indikator_id' => 'integer',
     ];
 
+    public function desa(): BelongsTo
+    {
+        return $this->belongsTo(Desa::class);
+    }
+    
     public function indikator(): BelongsTo
     {
-        return $this->belongsTo(Indikator::class);
+        return $this->belongsTo(Indikator::class, 'kode_indikator', 'id');
     }
 }
