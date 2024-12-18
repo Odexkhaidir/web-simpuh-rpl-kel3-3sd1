@@ -51,9 +51,8 @@ models:
       belongsTo: Desa
 
   Indikator:
-    kode_indikator: integer, primary, autoIncrement
     nama_indikator: string
-    deskripsi: text
+    deskripsi: string
     persentase: integer
     tahun: integer
     kode_desa: integer
@@ -154,9 +153,9 @@ models:
 #     deleteIndikator:
 #       destroy: delete
 
-#   OutputKekumuhanController:
-#     resource: OutputKekumuhan
-#     getOutput:
-#       query: where:kode_desa
-#     setOutput:
-#       store: create
+  # OutputKekumuhanController:
+  #   resource: OutputKekumuhan
+  #   getOutput:
+  #     query: where:kode_desa
+  #   setOutput:
+  #     store: create

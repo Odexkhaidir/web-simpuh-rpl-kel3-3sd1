@@ -22,14 +22,12 @@ class IndikatorFactory extends Factory
     public function definition(): array
     {
         return [
-            'kode_indikator' => $this->faker->word(),
             'nama_indikator' => $this->faker->word(),
-            'deskripsi' => $this->faker->text(),
+            'deskripsi' => $this->faker->word(),
             'persentase' => $this->faker->numberBetween(-10000, 10000),
             'tahun' => $this->faker->numberBetween(-10000, 10000),
             'kode_desa' => $this->faker->numberBetween(-10000, 10000),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'timestamp' => $this->faker->dateTime(),
             'desa_id' => Desa::factory(),
         ];
     }

@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('desa', function (Blueprint $table) {
+        Schema::create('indikators', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_desa')->autoIncrement();
-            $table->string('nama_desa');
-            $table->integer('kode_kecamatan');
-            $table->foreignId('kecamatan_id');
+            $table->string('nama_indikator');
+            $table->string('deskripsi');
+            $table->integer('persentase');
+            $table->integer('tahun');
+            $table->integer('kode_desa');
+            $table->dateTime('timestamp');
+            $table->foreignId('desa_id');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('desas');
+        Schema::dropIfExists('indikators');
     }
 };

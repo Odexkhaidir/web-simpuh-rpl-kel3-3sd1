@@ -16,15 +16,13 @@ class Indikator extends Model
      *
      * @var array
      */
-    protected $table = 'indikator';
-
     protected $fillable = [
-        'kode_indikator',
         'nama_indikator',
         'deskripsi',
         'persentase',
         'tahun',
         'kode_desa',
+        'timestamp',
         'desa_id',
     ];
 
@@ -35,8 +33,7 @@ class Indikator extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'timestamp' => 'datetime',
         'desa_id' => 'integer',
     ];
 

@@ -15,8 +15,6 @@ class OutputKekumuhan extends Model
      *
      * @var array
      */
-    protected $table = 'output_kekumuhan';
-
     protected $fillable = [
         'kode_output',
         'indeks_kumuh',

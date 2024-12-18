@@ -35,26 +35,12 @@ class IndikatorResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('kode_indikator')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('nama_indikator')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('deskripsi')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('persentase')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('tahun')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\Select::make('desa_id')
-                    ->relationship('desa', 'nama_desa')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
             ]);
     }
 
@@ -62,22 +48,14 @@ class IndikatorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('kode_indikator')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('nama_indikator')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('persentase')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('tahun')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('kode_desa')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('desa.nama_desa')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('sub_indikator')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('versi')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

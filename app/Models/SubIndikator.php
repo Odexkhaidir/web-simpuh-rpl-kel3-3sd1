@@ -15,8 +15,6 @@ class SubIndikator extends Model
      *
      * @var array
      */
-    protected $table = 'sub_indikator';
-    
     protected $fillable = [
         'kode_sub_indikator',
         'nama_sub_indikator',
@@ -25,6 +23,7 @@ class SubIndikator extends Model
         'persentase',
         'versi',
         'kode_indikator',
+        'timestamp',
         'indikator_id',
     ];
 
@@ -35,8 +34,7 @@ class SubIndikator extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'timestamp' => 'datetime',
         'indikator_id' => 'integer',
     ];
 
