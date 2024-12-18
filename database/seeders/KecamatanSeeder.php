@@ -37,7 +37,7 @@ class KecamatanSeeder extends Seeder
         ];
 
         foreach ($kecamatans as $kecamatan) {
-            DB::table('kecamatan')->insert([
+            DB::table('kecamatans')->insert([
                 'kode_kecamatan' => $kecamatan['kode_kecamatan'],
                 'nama_kecamatan' => $kecamatan['nama_kecamatan'],
                 'created_at' => Carbon::now(),

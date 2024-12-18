@@ -43,13 +43,13 @@ class DesaSeeder extends Seeder
             ['kode_desa' => '332606001', 'nama_desa' => 'Siwalan', 'kode_kecamatan' => '332606', 'kecamatan_id' => 6],
             ['kode_desa' => '332606002', 'nama_desa' => 'Siwalan Tengah', 'kode_kecamatan' => '332606', 'kecamatan_id' => 6],
             ['kode_desa' => '332606003', 'nama_desa' => 'Siwalan Timur', 'kode_kecamatan' => '332606', 'kecamatan_id' => 6],
-            
+
             // Tambahkan lebih banyak desa di sini untuk semua kecamatan (hingga 200+ data)
         ];
 
         // Insert ke database
         foreach ($desas as $desa) {
-            DB::table('desa')->insert([
+            DB::table('desas')->insert([
                 'kode_desa' => $desa['kode_desa'],
                 'nama_desa' => $desa['nama_desa'],
                 'kode_kecamatan' => $desa['kode_kecamatan'],

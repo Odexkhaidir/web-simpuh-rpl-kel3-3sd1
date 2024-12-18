@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('output_kekumuhan', function (Blueprint $table) {
+        Schema::create('laporans', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_output')->autoIncrement();
-            $table->integer('indeks_kumuh');
-            $table->string('status_kumuh');
-            $table->float('kontribusi_penanganan');
-            $table->integer('tahun');
+            $table->string('kode_laporan')->autoIncrement();
+            $table->dateTime('timestamp');
+            $table->string('isi_laporan');
+            $table->string('photo_bukti');
+            $table->string('status_laporan');
+            $table->integer('kode_user');
             $table->integer('kode_desa');
             $table->foreignId('desa_id');
             $table->timestamps();
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('output_kekumuhans');
+        Schema::dropIfExists('laporans');
     }
 };

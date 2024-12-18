@@ -15,8 +15,6 @@ class Kecamatan extends Model
      *
      * @var array
      */
-    protected $table = 'kecamatan';
-
     protected $fillable = [
         'kode_kecamatan',
         'nama_kecamatan',

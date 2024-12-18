@@ -28,8 +28,7 @@ class IndikatorFactory extends Factory
             'persentase' => $this->faker->numberBetween(-10000, 10000),
             'tahun' => $this->faker->numberBetween(-10000, 10000),
             'kode_desa' => $this->faker->numberBetween(-10000, 10000),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'timestamp' => $this->faker->dateTime(),
             'desa_id' => Desa::factory(),
         ];
     }

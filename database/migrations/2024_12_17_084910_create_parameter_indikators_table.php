@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parameter_indikator', function (Blueprint $table) {
+        Schema::create('parameter_indikators', function (Blueprint $table) {
             $table->id();
             $table->string('kode_parameter_indikator')->autoIncrement();
             $table->string('nama_parameter_indikator');

@@ -20,7 +20,7 @@ class ParameterUmumResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-c-list-bullet';
 
     protected static ?string $navigationGroup = 'Indikator Kekumuhan';
-    
+
     protected static ?string $navigationLabel = 'Parameter Umum';
 
     protected static ?string $modelLabel = 'Parameter Umum Desa';
@@ -35,27 +35,12 @@ class ParameterUmumResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('kode_parameter_umum')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('nama_parameter_umum')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('nilai')
-                    ->required()
-                    ->numeric(),
                 Forms\Components\TextInput::make('satuan')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('tahun')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('kode_desa')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\Select::make('desa_id')
-                    ->relationship('desa', 'id')
-                    ->required(),
+                    ->maxLength(255)
             ]);
     }
 
@@ -63,32 +48,10 @@ class ParameterUmumResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('kode_parameter_umum')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('nama_parameter_umum')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('nilai')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('satuan')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('tahun')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('kode_desa')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('desa.id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->searchable()
             ])
             ->filters([
                 //
