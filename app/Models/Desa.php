@@ -14,13 +14,8 @@ class Desa extends Model
     /**
      * The attributes that are mass assignable.
      *
-<<<<<<< HEAD
      * @var array
      */
-=======
-     * @var array\
-     */    
->>>>>>> 861b1a3 (update khaidir)
     protected $fillable = [
         'kode_desa',
         'nama_desa',
