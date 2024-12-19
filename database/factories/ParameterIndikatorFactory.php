@@ -22,12 +22,12 @@ class ParameterIndikatorFactory extends Factory
     public function definition(): array
     {
         return [
-            'kode_parameter_indikator' => $this->faker->word(),
             'nama_parameter_indikator' => $this->faker->word(),
             'nilai' => $this->faker->numberBetween(-10000, 10000),
             'satuan' => $this->faker->word(),
             'kode_indikator' => $this->faker->numberBetween(-10000, 10000),
-            'indikator_id' => Indikator::factory(),
+            'nama_sub_indikator' => $this->faker->word(),
+            'nama_indikator' => $this->faker->word(),
         ];
     }
 }

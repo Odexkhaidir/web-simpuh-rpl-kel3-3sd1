@@ -14,13 +14,8 @@ class Desa extends Model
     /**
      * The attributes that are mass assignable.
      *
-<<<<<<< HEAD
-     * @var array
-     */
-=======
      * @var array\
-     */    
->>>>>>> 861b1a3 (update khaidir)
+     */
     protected $fillable = [
         'kode_desa',
         'nama_desa',
@@ -38,9 +33,9 @@ class Desa extends Model
         'kecamatan_id' => 'integer',
     ];
 
-    public function kecamatan(): BelongsTo
+    public function kecamatans(): BelongsTo
     {
-        return $this->belongsTo(Kecamatan::class);
+        return $this->belongsTo(Kecamatan::class, 'kecamatan_id', 'id');
     }
 
     public function indikators(): HasMany
