@@ -43,7 +43,7 @@ class Indikator extends Model
         return $this->belongsTo(Desa::class);
     }
 
-    public function subIndikators(): HasMany
+    public function subIndikator(): HasMany
     {
         return $this->hasMany(SubIndikator::class, 'kode_indikator', 'id');
     }
