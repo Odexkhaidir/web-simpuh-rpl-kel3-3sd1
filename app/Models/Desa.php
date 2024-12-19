@@ -33,9 +33,9 @@ class Desa extends Model
         'kecamatan_id' => 'integer',
     ];
 
-    public function kecamatan(): BelongsTo
+    public function kecamatans(): BelongsTo
     {
-        return $this->belongsTo(Kecamatan::class);
+        return $this->belongsTo(Kecamatan::class, 'kecamatan_id', 'id');
     }
 
     public function indikators(): HasMany

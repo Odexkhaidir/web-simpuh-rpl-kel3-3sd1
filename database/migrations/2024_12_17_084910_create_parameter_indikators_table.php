@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('parameter_indikators', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_parameter_indikator')->autoIncrement();
             $table->string('nama_parameter_indikator');
             $table->integer('nilai');
             $table->string('satuan');
-            $table->integer('kode_indikator');
-            $table->foreignId('indikator_id');
+            $table->foreignId('nama_sub_indikator');
+            $table->foreignId('nama_indikator');
             $table->timestamps();
         });
     }

@@ -16,12 +16,11 @@ class ParameterIndikator extends Model
      * @var array
      */
     protected $fillable = [
-        'kode_parameter_indikator',
         'nama_parameter_indikator',
         'nilai',
         'satuan',
-        'kode_indikator',
-        'indikator_id',
+        'nama_sub_indikator',
+        'nama_indikator',
     ];
 
     /**
@@ -36,6 +35,10 @@ class ParameterIndikator extends Model
 
     public function indikator(): BelongsTo
     {
-        return $this->belongsTo(Indikator::class);
+        return $this->belongsTo(Indikator::class, 'nama_indikator', 'id');
+    }
+    public function sub_indikator(): BelongsTo
+    {
+        return $this->belongsTo(SubIndikator::class, 'nama_sub_indikator', 'id');
     }
 }

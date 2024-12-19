@@ -16,6 +16,7 @@ class Indikator extends Model
      *
      * @var array
      */
+    
     protected $fillable = [
         'kode_indikator',
         'nama_indikator',

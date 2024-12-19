@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('desas', function (Blueprint $table) {
+        Schema::create('pendataan_rumah_tanggas', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_desa');
             $table->string('nama_desa');
-            $table->integer('kode_kecamatan')->default(0);
-            $table->foreignId('kecamatan_id');
+            $table->integer('nama_kecamatan');
+            $table->foreignId('desa_id');
             $table->timestamps();
+            $table->string('kode_rt');
+            $table->string('alamat');
+            $table->string('kepala_keluarga');
+            $table->integer('jumlah_keluarga');
+
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('desas');
+        Schema::dropIfExists('pendataan_rumah_tanggas');
     }
 };
