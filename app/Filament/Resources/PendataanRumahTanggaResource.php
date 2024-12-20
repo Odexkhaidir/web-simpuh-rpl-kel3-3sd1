@@ -31,14 +31,6 @@ class PendataanRumahTanggaResource extends Resource
 
     protected static ?string $slug = 'Pendataan rumah tangga';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
-
     public static function table(Table $table): Table
     {
         return $table
@@ -85,6 +77,32 @@ class PendataanRumahTanggaResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\Select::make('nama_kecamatan')
+                    ->relationship('kecamatans', 'nama_kecamatan')
+                    ->label('Kecamatan')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                Forms\Components\Select::make('nama_desa')
+                    ->relationship('desas', 'nama_desa')
+                    ->label('Desa')
+                    ->searchable()
+                    ->preload()
+                    ->live()
+                    ->required(),
+                Forms\Components\Select::make('nama_kecamatan')
+                    ->relationship('kecamatans', 'nama_kecamatan')
+                    ->label('Kecamatan')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
             ]);
     }
 

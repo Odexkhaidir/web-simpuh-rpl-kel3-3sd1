@@ -51,7 +51,8 @@ class ParameterIndikatorResource extends Resource
                     ->searchable()
                     ->preload(),
                 Forms\Components\TextInput::make('nilai')
-                    ->required()
+                    // ->required()
+                    ->setAttribute('readonly', 0)
                     ->maxLength(255)
                     ->hidden(),
             ]);
