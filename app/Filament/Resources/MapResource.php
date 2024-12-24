@@ -17,8 +17,6 @@ use Filament\Forms\Components\View;
 
 class MapResource extends Resource
 {
-    protected static ?string $model = Map::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
     protected static ?string $navigationLabel = 'Peta';
