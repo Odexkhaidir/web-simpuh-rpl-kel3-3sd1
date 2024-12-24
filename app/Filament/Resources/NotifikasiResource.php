@@ -26,6 +26,8 @@ class NotifikasiResource extends Resource
     protected static ?string $pluralModelLabel = 'Notifikasi User';
 
     protected static ?string $slug = 'notifikasi';
+
+    protected static ?int $navigationSort = 7;
     
     public static function form(Form $form): Form
     {
