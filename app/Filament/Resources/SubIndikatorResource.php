@@ -35,27 +35,55 @@ class SubIndikatorResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama_sub_indikator')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('satuan')
+                    ->required()
+                    ->maxLength(255),
+                    Forms\Components\Select::make('kode_indikator')
+                    ->relationship('indikator', 'nama_indikator')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+        ->columns([
+            Tables\Columns\TextColumn::make('nama_sub_indikator')
+                ->searchable(),
+            Tables\Columns\TextColumn::make('satuan')
+                ->searchable(),
+            Tables\Columns\TextColumn::make('versi')
+                ->numeric()
+                ->sortable(),
+            Tables\Columns\TextColumn::make('indikator.nama_indikator')
+                ->label('Indikator')
+                ->searchable()
+                ->sortable(),            
+            Tables\Columns\TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            Tables\Columns\TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]),
+        ]);
     }
 
     public static function getRelations(): array

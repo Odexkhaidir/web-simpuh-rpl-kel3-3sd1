@@ -2,23 +2,24 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LaporanResource\Pages;
-use App\Filament\Resources\LaporanResource\RelationManagers;
-use App\Models\Laporan;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Laporan;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Tables\Columns\DateTimePicker;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\LaporanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\LaporanResource\RelationManagers;
 
 class LaporanResource extends Resource
 {
     protected static ?string $model = Laporan::class;
 
     protected static ?string $navigationIcon = 'heroicon-m-document-chart-bar';
-    
+
     protected static ?string $navigationLabel = 'Laporan';
 
     protected static ?string $modelLabel = 'Laporan Masyarakat';
@@ -27,6 +28,8 @@ class LaporanResource extends Resource
 
     protected static ?string $slug = 'laporan';
     
+    protected static ?int $navigationSort = 3;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -34,8 +37,6 @@ class LaporanResource extends Resource
                 Forms\Components\TextInput::make('kode_laporan')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DateTimePicker::make('timestamp')
-                    ->required(),
                 Forms\Components\TextInput::make('isi_laporan')
                     ->required()
                     ->maxLength(255),
@@ -54,6 +55,15 @@ class LaporanResource extends Resource
                 Forms\Components\Select::make('desa_id')
                     ->relationship('desa', 'id')
                     ->required(),
+                Forms\Components\TextInput::make('judul')
+                    ->required()
+                    ->label('Judul Laporan'),
+                Forms\Components\Textarea::make('deskripsi')
+                    ->required()
+                    ->label('Deskripsi'),
+                Forms\Components\DatePicker::make('tanggal')
+                    ->required()
+                    ->label('Tanggal'),
             ]);
     }
 
@@ -81,6 +91,15 @@ class LaporanResource extends Resource
                 Tables\Columns\TextColumn::make('desa.id')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('judul')
+                    ->label('Judul')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->label('Deskripsi')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('tanggal')
+                    ->label('Tanggal'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -113,7 +132,7 @@ class LaporanResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLaporans::route('/'),
+            'index' => Pages\ListLaporan::route('/'),
             'create' => Pages\CreateLaporan::route('/create'),
             'edit' => Pages\EditLaporan::route('/{record}/edit'),
         ];

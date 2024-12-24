@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
             $table->string('kode_laporan')->autoIncrement();
-            $table->dateTime('timestamp');
             $table->string('isi_laporan');
             $table->string('photo_bukti');
             $table->string('status_laporan');

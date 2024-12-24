@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laporans', function (Blueprint $table) {
+        Schema::create('parameter_umums', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_laporan')->autoIncrement();
-            $table->dateTime('timestamp');
-            $table->string('isi_laporan');
-            $table->string('photo_bukti');
-            $table->string('status_laporan');
-            $table->integer('kode_user');
+            $table->string('kode_parameter_umum')->autoIncrement();
+            $table->string('nama_parameter_umum');
+            $table->integer('nilai');
+            $table->string('satuan');
+            $table->integer('tahun');
             $table->integer('kode_desa');
             $table->foreignId('desa_id');
             $table->timestamps();
-            $table->string('judul');
-            $table->string('deskripsi');
-            $table->dateTime('tanggal');
         });
     }
 
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laporans');
+        Schema::dropIfExists('parameter_umums');
     }
 };

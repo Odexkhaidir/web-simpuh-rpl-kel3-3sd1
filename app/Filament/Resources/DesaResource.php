@@ -41,16 +41,17 @@ class DesaResource extends Resource
                 Forms\Components\TextInput::make('nama_desa')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('kecamatan_id')
-                    ->relationship('kecamatan', 'nama_kecamatan')
+                Forms\Components\Select::make('nama_kecamatan')
+                    ->relationship('kecamatans', 'nama_kecamatan')
+                    ->label('Kecamatan')
                     ->searchable()
                     ->preload()
-                    ->required()
-                // Forms\Components\Select::make('kode_kecamatan')
-                //     ->relationship('kecamatan', 'nama_kecamatan')
-                //     ->searchable()
-                //     ->preload()
-                //     ->required()
+                    ->required(),
+                Forms\Components\Select::make('kode_kecamatan')
+                    ->relationship('kecamatans', 'kode_kecamatan')
+                    ->searchable()
+                    ->preload()
+                    ->hidden(),
             ]);
     }
 
@@ -59,13 +60,18 @@ class DesaResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('kode_desa')
+                    ->label('Kode Desa')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nama_desa')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('kecamatan.kode_kecamatan')
-                    ->label('Kode Kecamatan')
+                    ->label('Desa')
+                    ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('kecamatan.nama_kecamatan')
+                Tables\Columns\TextColumn::make('kecamatans.kode_kecamatan')
+                    ->label('Kode Kecamatan')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('kecamatans.nama_kecamatan')
+                    ->label('Kecamatan')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

@@ -35,24 +35,26 @@ class ParameterIndikatorResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('kode_parameter_indikator')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('nama_parameter_indikator')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('nilai')
-                    ->required()
-                    ->numeric(),
                 Forms\Components\TextInput::make('satuan')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('kode_indikator')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\Select::make('indikator_id')
-                    ->relationship('indikator', 'id')
+                Forms\Components\Select::make('nama_indikator')
+                    ->relationship('indikator', 'nama_indikator')
+                    ->preload()
+                    ->searchable()
                     ->required(),
+                Forms\Components\Select::make('nama_sub_indikator')
+                    ->relationship('sub_indikator', 'nama_sub_indikator')
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\TextInput::make('nilai')
+                    // ->required()
+                    ->setAttribute('readonly', 0)
+                    ->maxLength(255)
+                    ->hidden(),
             ]);
     }
 
@@ -60,19 +62,22 @@ class ParameterIndikatorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('kode_parameter_indikator')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('nama_parameter_indikator')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nilai')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('satuan')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('kode_indikator')
+                Tables\Columns\TextColumn::make('nama_indikator')
+                    // ->relationship('indikator', 'nama_indikator')
+                    ->searchable()
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('indikator.id')
+                Tables\Columns\TextColumn::make('nama_sub_indikator')
+                    // ->relationship('sub_indikator', 'nama_sub_indikator')
+                    ->searchable()
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parameter_indikators', function (Blueprint $table) {
+        Schema::create('sub_indikators', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_parameter_indikator');
+            $table->string('kode_sub_indikator')->autoIncrement();
+            $table->string('nama_sub_indikator');
             $table->integer('nilai');
             $table->string('satuan');
-            $table->foreignId('nama_sub_indikator');
-            $table->foreignId('nama_indikator');
+            $table->integer('persentase');
+            $table->string('versi');
+            $table->integer('kode_indikator');
+            $table->dateTime('timestamp');
+            $table->foreignId('indikator_id');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parameter_indikators');
+        Schema::dropIfExists('sub_indikators');
     }
 };

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\LaporanResource\Pages;
+namespace App\Filament\Resources\MapResource\Pages;
 
-use App\Filament\Resources\LaporanResource;
+use App\Filament\Resources\MapResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListLaporans extends ListRecords
+class ListMaps extends ListRecords
 {
-    protected static string $resource = LaporanResource::class;
+    protected static string $resource = MapResource::class;
 
     protected function getHeaderActions(): array
     {

@@ -75,13 +75,13 @@ models:
       belongsTo: Indikator
 
   ParameterIndikator:
-    kode_parameter_indikator: integer, primary, autoIncrement
     nama_parameter_indikator: string
     nilai: integer
     satuan: string
-    kode_indikator: integer
+    nama_sub_indikator: string
+    nama_indikator: string
     relationships:
-      belongsTo: Indikator
+      belongsTo: Indikator, SubIndikator
 
   ParameterUmum:
     kode_parameter_umum: integer, primary, autoIncrement
