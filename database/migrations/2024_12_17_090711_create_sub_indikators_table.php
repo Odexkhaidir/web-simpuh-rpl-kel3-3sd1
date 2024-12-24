@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sub_indikator', function (Blueprint $table) {
+        Schema::create('sub_indikators', function (Blueprint $table) {
             $table->id();
             $table->string('kode_sub_indikator')->autoIncrement();
             $table->string('nama_sub_indikator');
@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('persentase');
             $table->string('versi');
             $table->integer('kode_indikator');
+            $table->dateTime('timestamp');
             $table->foreignId('indikator_id');
             $table->timestamps();
         });

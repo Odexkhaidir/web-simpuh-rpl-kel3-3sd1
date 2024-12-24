@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laporan', function (Blueprint $table) {
+        Schema::create('indikators', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_laporan')->autoIncrement();
-            $table->dateTime('timestamp');
-            $table->string('isi_laporan');
-            $table->string('photo_bukti');
-            $table->string('status_laporan');
-            $table->integer('kode_user');
+            $table->string('kode_indikator')->autoIncrement();
+            $table->string('nama_indikator');
+            $table->text('deskripsi');
+            $table->integer('persentase');
+            $table->integer('tahun');
             $table->integer('kode_desa');
+            $table->dateTime('timestamp');
             $table->foreignId('desa_id');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laporans');
+        Schema::dropIfExists('indikators');
     }
 };
