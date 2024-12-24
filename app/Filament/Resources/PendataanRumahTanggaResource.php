@@ -97,13 +97,19 @@ class PendataanRumahTanggaResource extends Resource
                     ->preload()
                     ->live()
                     ->required(),
-                Forms\Components\Select::make('nama_kecamatan')
-                    ->relationship('kecamatans', 'nama_kecamatan')
-                    ->label('Kecamatan')
-                    ->searchable()
-                    ->preload()
+                Forms\Components\TextInput::make('kode_rt')
+                    ->label('Kode RT/RW')
                     ->required(),
-            ]);
+                Forms\Components\TextInput::make('alamat')
+                    ->label('Alamat')
+                    ->required(),
+                Forms\Components\TextInput::make('kepala_keluarga')
+                    ->label('Nama Kepala Keluarga')
+                    ->required(),
+                Forms\Components\TextInput::make('jumlah_keluarga')
+                    ->label('Jumlah Anggota Keluarga')
+                    ->required(),
+                ]) ->column(2);
     }
 
     public static function getRelations(): array

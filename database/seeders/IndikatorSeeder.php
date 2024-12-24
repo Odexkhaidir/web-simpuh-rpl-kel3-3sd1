@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class DesaSeeder extends Seeder
+class IndikatorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +20,7 @@ class DesaSeeder extends Seeder
                 'deskripsi' => 'Mengukur tingkat kesejahteraan masyarakat desa.',
                 'persentase' => 75.5,
                 'tahun' => 2023,
-                'kode_desa' => 'DS001',
+                'kode_desa' => null,
                 'desa_id' => 1,
             ],
             [
@@ -29,7 +29,7 @@ class DesaSeeder extends Seeder
                 'deskripsi' => 'Indikator untuk menilai akses dan kualitas layanan kesehatan.',
                 'persentase' => 85.3,
                 'tahun' => 2023,
-                'kode_desa' => 'DS002',
+                'kode_desa' => null,
                 'desa_id' => 1,
             ],
             [
@@ -38,20 +38,19 @@ class DesaSeeder extends Seeder
                 'deskripsi' => 'Mengukur tingkat pendidikan masyarakat desa.',
                 'persentase' => 90.2,
                 'tahun' => 2023,
-                'kode_desa' => 'DS003',
+                'kode_desa' => null,
                 'desa_id' => 3,
             ],
         ];
 
         foreach ($indikators as $indikator) {
-            DB::table('kecamatans')->insert([
+            DB::table('indikators')->insert([
                 'kode_indikator' => $indikator['kode_indikator'],
                 'nama_indikator' => $indikator['nama_indikator'],
                 'deskripsi' => $indikator['deskripsi'],
                 'persentase' => $indikator['persentase'],
                 'tahun' => $indikator['tahun'],
                 'kode_desa' => $indikator['kode_desa'],
-                'timestamp' => $indikator['timestamp'],
                 'desa_id' => $indikator['desa_id'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
