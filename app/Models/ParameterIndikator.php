@@ -35,10 +35,10 @@ class ParameterIndikator extends Model
 
     public function indikator(): BelongsTo
     {
-        return $this->belongsTo(Indikator::class, 'nama_indikator', 'id');
+        return $this->belongsTo(Indikator::class, 'indikator_id', 'id');
     }
     public function sub_indikator(): BelongsTo
     {
-        return $this->belongsTo(SubIndikator::class, 'nama_sub_indikator', 'id');
+        return $this->belongsTo(SubIndikator::class, 'sub_indikator_id', 'id');
     }
 }

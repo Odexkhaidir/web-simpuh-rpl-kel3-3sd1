@@ -60,17 +60,17 @@ class DesaResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('kode_desa')
-                    ->label('Kode Wilayah')
+                    ->label('Kode Desa')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nama_desa')
                     ->label('Desa')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('kecamatan.kode_kecamatan')
+                Tables\Columns\TextColumn::make('kecamatans.kode_kecamatan')
                     ->label('Kode Kecamatan')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('kecamatan.nama_kecamatan')
+                Tables\Columns\TextColumn::make('kecamatans.nama_kecamatan')
                     ->label('Kecamatan')
                     ->numeric()
                     ->sortable(),

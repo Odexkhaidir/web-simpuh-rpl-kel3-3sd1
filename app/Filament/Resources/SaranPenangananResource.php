@@ -27,6 +27,8 @@ class SaranPenangananResource extends Resource
 
     protected static ?string $slug = 'saran-penanganan';
 
+    protected static ?int $navigationSort = 4;
+
     public static function form(Form $form): Form
     {
         return $form

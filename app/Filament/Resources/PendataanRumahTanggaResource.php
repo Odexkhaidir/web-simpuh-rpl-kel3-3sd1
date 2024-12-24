@@ -2,16 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PendataanRumahTanggaResource\Pages;
-use App\Filament\Resources\PendataanRumahTanggaResource\RelationManagers;
-use App\Models\PendataanRumahTangga;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use App\Models\PendataanRumahTangga;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PendataanRumahTanggaResource\Pages;
+use App\Filament\Resources\PendataanRumahTanggaResource\RelationManagers;
 
 class PendataanRumahTanggaResource extends Resource
 {
@@ -31,13 +31,7 @@ class PendataanRumahTanggaResource extends Resource
 
     protected static ?string $slug = 'Pendataan rumah tangga';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
+    protected static ?int $navigationSort = 5;
 
     public static function table(Table $table): Table
     {
@@ -80,12 +74,45 @@ class PendataanRumahTanggaResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction:make()->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\Select::make('nama_kecamatan')
+                    ->relationship('kecamatans', 'nama_kecamatan')
+                    ->label('Kecamatan')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                Forms\Components\Select::make('nama_desa')
+                    ->relationship('desas', 'nama_desa')
+                    ->label('Desa')
+                    ->searchable()
+                    ->preload()
+                    ->live()
+                    ->required(),
+                Forms\Components\TextInput::make('kode_rt')
+                    ->label('Kode RT/RW')
+                    ->required(),
+                Forms\Components\TextInput::make('alamat')
+                    ->label('Alamat')
+                    ->required(),
+                Forms\Components\TextInput::make('kepala_keluarga')
+                    ->label('Nama Kepala Keluarga')
+                    ->required(),
+                Forms\Components\TextInput::make('jumlah_keluarga')
+                    ->label('Jumlah Anggota Keluarga')
+                    ->required(),
+                ]) ->column(2);
     }
 
     public static function getRelations(): array

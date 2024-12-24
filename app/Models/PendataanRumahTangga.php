@@ -39,11 +39,11 @@ class PendataanRumahTangga extends Model
 
     public function kecamatans(): BelongsTo
     {
-        return $this->belongsTo(Kecamatan::class);
+        return $this->belongsTo(Kecamatan::class, 'kecamatan_id', 'id');
     }
 
     public function desas(): BelongsTo
     {
-        return $this->belongsTo(Desa::class);
+        return $this->belongsTo(Desa::class, 'desa_id', 'id');
     }
 }
