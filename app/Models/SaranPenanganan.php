@@ -15,8 +15,6 @@ class SaranPenanganan extends Model
      *
      * @var array
      */
-    protected $table = 'saran_penanganan';
-
     protected $fillable = [
         'kode_saran_penanganan',
         'saran_penanganan',

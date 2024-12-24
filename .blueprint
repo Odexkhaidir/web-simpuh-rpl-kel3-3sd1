@@ -9,16 +9,16 @@ created:
     - database/factories/ParameterIndikatorFactory.php
     - database/factories/ParameterUmumFactory.php
     - database/factories/OutputKekumuhanFactory.php
-    - database/migrations/2024_12_16_145627_create_notifikasis_table.php
-    - database/migrations/2024_12_16_145628_create_laporans_table.php
-    - database/migrations/2024_12_16_145629_create_kecamatans_table.php
-    - database/migrations/2024_12_16_145630_create_desas_table.php
-    - database/migrations/2024_12_16_145631_create_saran_penanganans_table.php
-    - database/migrations/2024_12_16_145632_create_indikators_table.php
-    - database/migrations/2024_12_16_145633_create_sub_indikators_table.php
-    - database/migrations/2024_12_16_145634_create_parameter_indikators_table.php
-    - database/migrations/2024_12_16_145635_create_parameter_umums_table.php
-    - database/migrations/2024_12_16_145636_create_output_kekumuhans_table.php
+    - database/migrations/2024_12_17_090701_create_notifikasis_table.php
+    - database/migrations/2024_12_17_090702_create_laporans_table.php
+    - database/migrations/2024_12_17_090703_create_kecamatans_table.php
+    - database/migrations/2024_12_17_090704_create_desas_table.php
+    - database/migrations/2024_12_17_090705_create_saran_penanganans_table.php
+    - database/migrations/2024_12_17_090706_create_indikators_table.php
+    - database/migrations/2024_12_17_090707_create_sub_indikators_table.php
+    - database/migrations/2024_12_17_090708_create_parameter_indikators_table.php
+    - database/migrations/2024_12_17_090709_create_parameter_umums_table.php
+    - database/migrations/2024_12_17_090710_create_output_kekumuhans_table.php
     - app/Models/Notifikasi.php
     - app/Models/Laporan.php
     - app/Models/Kecamatan.php
@@ -30,14 +30,14 @@ created:
     - app/Models/ParameterUmum.php
     - app/Models/OutputKekumuhan.php
 models:
-    SubIndikator: { kode_sub_indikator: 'integer, primary, autoIncrement', nama_sub_indikator: string, nilai: integer, satuan: string, persentase: integer, versi: string, kode_indikator: integer, created_at: datetime, updated_at: datetime, relationships: { belongsTo: Indikator } }
     User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
     Notifikasi: { kode_notifikasi: 'integer, primary, autoIncrement', timestamp: datetime, detail_notifikasi: string, kode_user: integer }
     Laporan: { kode_laporan: 'integer, primary, autoIncrement', timestamp: datetime, isi_laporan: string, photo_bukti: string, status_laporan: string, kode_user: integer, kode_desa: integer, relationships: { belongsTo: Desa } }
     Kecamatan: { kode_kecamatan: 'integer, primary, autoIncrement', nama_kecamatan: string, relationships: { hasMany: Desa } }
     Desa: { kode_desa: 'integer, primary, autoIncrement', nama_desa: string, kode_kecamatan: integer, relationships: { belongsTo: Kecamatan, hasMany: 'Indikator, SaranPenanganan, ParameterUmum, OutputKekumuhan, Laporan' } }
     SaranPenanganan: { kode_saran_penanganan: 'integer, primary, autoIncrement', saran_penanganan: text, kode_desa: integer, relationships: { belongsTo: Desa } }
-    Indikator: { kode_indikator: 'integer, primary, autoIncrement', nama_indikator: string, deskripsi: text, persentase: integer, tahun: integer, kode_desa: integer, created_at: datetime, updated_at: datetime, relationships: { belongsTo: Desa, hasMany: 'SubIndikator, ParameterIndikator' } }
+    Indikator: { kode_indikator: 'integer, primary, autoIncrement', nama_indikator: string, deskripsi: text, persentase: integer, tahun: integer, kode_desa: integer, timestamp: datetime, relationships: { belongsTo: Desa, hasMany: 'SubIndikator, ParameterIndikator' } }
+    SubIndikator: { kode_sub_indikator: 'integer, primary, autoIncrement', nama_sub_indikator: string, nilai: integer, satuan: string, persentase: integer, versi: string, kode_indikator: integer, timestamp: datetime, relationships: { belongsTo: Indikator } }
     ParameterIndikator: { kode_parameter_indikator: 'integer, primary, autoIncrement', nama_parameter_indikator: string, nilai: integer, satuan: string, kode_indikator: integer, relationships: { belongsTo: Indikator } }
     ParameterUmum: { kode_parameter_umum: 'integer, primary, autoIncrement', nama_parameter_umum: string, nilai: integer, satuan: string, tahun: integer, kode_desa: integer, relationships: { belongsTo: Desa } }
     OutputKekumuhan: { kode_output: 'integer, primary, autoIncrement', indeks_kumuh: integer, status_kumuh: string, kontribusi_penanganan: float, tahun: integer, kode_desa: integer, relationships: { belongsTo: Desa } }
