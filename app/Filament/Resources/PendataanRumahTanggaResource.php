@@ -31,6 +31,8 @@ class PendataanRumahTanggaResource extends Resource
 
     protected static ?string $slug = 'Pendataan rumah tangga';
 
+    protected static ?int $navigationSort = 5;
+
     public static function table(Table $table): Table
     {
         return $table

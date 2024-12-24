@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -20,7 +21,7 @@ class IndikatorResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
 
     protected static ?string $navigationGroup = 'Indikator Kekumuhan';
-    
+
     protected static ?string $navigationLabel = 'Indikator';
 
     protected static ?string $modelLabel = 'Indikator Kumuh';
@@ -38,8 +39,17 @@ class IndikatorResource extends Resource
                 Forms\Components\TextInput::make('nama_indikator')
                     ->required()
                     ->maxLength(255),
+                Select::make('year')
+                    ->label('Tahun Indikator')
+                    ->placeholder('Pilih tahun') 
+                    ->options(function () {
+                        $currentYear = now()->year; 
+                        $years = range(2000, $currentYear); 
+                        $years = array_reverse($years);
+                        return array_combine($years, $years); 
+                    })
+                    ->required(),
                 Forms\Components\Textarea::make('deskripsi')
-                    ->required()
                     ->columnSpanFull(),
             ]);
     }
@@ -55,7 +65,7 @@ class IndikatorResource extends Resource
                 Tables\Columns\TextColumn::make('subIndikator.nama_sub_indikator')
                     ->label('Sub Indikator')
                     ->searchable()
-                    ->sortable(),                
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('tahun')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
