@@ -30,6 +30,9 @@ class LaporanFactory extends Factory
             'kode_user' => $this->faker->numberBetween(-10000, 10000),
             'kode_desa' => $this->faker->numberBetween(-10000, 10000),
             'desa_id' => Desa::factory(),
+            'judul' => $this->faker->word(),
+            'deskripsi' => $this->faker->word(),
+            'tanggal' => $this->faker->dateTime(),
         ];
     }
 }
