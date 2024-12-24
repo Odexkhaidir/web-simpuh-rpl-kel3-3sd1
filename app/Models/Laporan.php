@@ -40,7 +40,7 @@ class Laporan extends Model
         'desa_id' => 'integer',
         'judul' => 'string', 
         'deskripsi' => 'string', 
-        'tanggal' => 'datatime'
+        'tanggal' => 'datetime'
     ];
 
     public function desa(): BelongsTo

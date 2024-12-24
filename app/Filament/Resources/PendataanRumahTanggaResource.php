@@ -2,16 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PendataanRumahTanggaResource\Pages;
-use App\Filament\Resources\PendataanRumahTanggaResource\RelationManagers;
-use App\Models\PendataanRumahTangga;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use App\Models\PendataanRumahTangga;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PendataanRumahTanggaResource\Pages;
+use App\Filament\Resources\PendataanRumahTanggaResource\RelationManagers;
 
 class PendataanRumahTanggaResource extends Resource
 {
@@ -72,6 +72,7 @@ class PendataanRumahTanggaResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction:make()->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

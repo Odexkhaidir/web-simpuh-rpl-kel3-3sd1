@@ -172,5 +172,100 @@
                 </div>
             </div>
         </div>
+        <header class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/path/to/logo.png" alt="Logo" width="40" class="me-2">
+                SISTEM MONITORING PENANGANAN KUMUH
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tabel Statistik</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profil Dinperkim
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Informasi Umum</a></li>
+                            <li><a class="dropdown-item" href="#">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="#">Program Dinperkim</a></li>
+                        </ul>
+                    </li>
+                    <!-- Ikon Profil -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Masuk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </header>
+    
+    <header class="hero-section">
+        <div class="container">
+            <h1>Sistem Monitoring Penanganan Kumuh (SIMPUH)</h1>
+            <h2>Kabupaten Pekalongan</h2>
+            <div class="mt-4">
+                <input type="text" class="form-control d-inline-block w-50" placeholder="Cari Desa atau Kecamatan">
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Statistik Informasi Persebaran Kawasan Kumuh</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h3>1,234</h3>
+                    <p>Jumlah Kawasan Kumuh</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/path/to/piechart.png" alt="Pie Chart" class="img-fluid">
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/path/to/linechart.png" alt="Line Chart" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Program Kerja DINPERKIM Kabupaten Pekalongan</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/path/to/image1.jpg" alt="Program 1" class="img-fluid">
+                </div>
+                <div class="col-md-3">
+                    <img src="/path/to/image2.jpg" alt="Program 2" class="img-fluid">
+                </div>
+                <div class="col-md-3">
+                    <img src="/path/to/image3.jpg" alt="Program 3" class="img-fluid">
+                </div>
+                <div class="col-md-3">
+                    <img src="/path/to/image4.jpg" alt="Program 4" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 DINPERKIM Kabupaten Pekalongan. All Rights Reserved.</p>
+            <p>Contact us: emailnyaaaa@gmail.com | +62 813 123 xxxx</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     </body>
 </html>
