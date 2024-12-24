@@ -118,4 +118,70 @@ class LaporanResource extends Resource
             'edit' => Pages\EditLaporan::route('/{record}/edit'),
         ];
     }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('judul')
+                    ->label('Judul')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->label('Deskripsi')
+                    ->limit(50),
+                Tables\Columns\DateColumn::make('tanggal')
+                    ->label('Tanggal')
+                    ->sortable(),
+                ])
+            ->actions([
+                Tables\Actions\EditAction::make(),  // Tombol edit
+                Tables\Actions\DeleteAction::make(), // Tombol delete
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(), // Delete massal
+            ]);
+    }
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\TextInput::make('judul')
+                    ->required()
+                    ->label('Judul Laporan'),
+                Forms\Components\Textarea::make('deskripsi')
+                    ->required()
+                    ->label('Deskripsi'),
+                Forms\Components\DatePicker::make('tanggal')
+                    ->required()
+                    ->label('Tanggal'),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('judul')
+                    ->label('Judul')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->label('Deskripsi')
+                    ->limit(50),
+                Tables\Columns\DateColumn::make('tanggal')
+                    ->label('Tanggal')
+                    ->sortable(),
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]);
+    }
+
+
 }

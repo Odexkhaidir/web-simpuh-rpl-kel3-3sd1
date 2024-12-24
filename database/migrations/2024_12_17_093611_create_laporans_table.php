@@ -22,6 +22,9 @@ return new class extends Migration
             $table->integer('kode_desa');
             $table->foreignId('desa_id');
             $table->timestamps();
+            $table->string('judul');
+            $table->string('deskripsi');
+            $table->dateTime('tanggal');
         });
     }
 

@@ -24,6 +24,9 @@ class Laporan extends Model
         'kode_user',
         'kode_desa',
         'desa_id',
+        'judul', 
+        'deskripsi', 
+        'tanggal'
     ];
 
     /**
@@ -35,10 +38,14 @@ class Laporan extends Model
         'id' => 'integer',
         'timestamp' => 'datetime',
         'desa_id' => 'integer',
+        'judul' => 'string', 
+        'deskripsi' => 'string', 
+        'tanggal' => 'datatime'
     ];
 
     public function desa(): BelongsTo
     {
         return $this->belongsTo(Desa::class);
     }
+
 }
