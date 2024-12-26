@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parameter_umums', function (Blueprint $table) {
+        Schema::create('pendataan_rumah_tanggas', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_parameter_umum')->autoIncrement();
-            $table->string('nama_parameter_umum');
-            $table->integer('nilai');
-            $table->string('satuan');
-            $table->integer('tahun');
-            $table->integer('kode_desa');
+            $table->string('nama_desa');
+            $table->integer('nama_kecamatan');
             $table->foreignId('desa_id');
             $table->timestamps();
+            $table->string('kode_rt');
+            $table->string('alamat');
+            $table->string('kepala_keluarga');
+            $table->integer('jumlah_keluarga');
+
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parameter_umums');
+        Schema::dropIfExists('pendataan_rumah_tanggas');
     }
 };

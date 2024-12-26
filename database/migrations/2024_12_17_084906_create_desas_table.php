@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('desas', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_desa')->autoIncrement();
+            $table->string('kode_desa');
             $table->string('nama_desa');
-            $table->integer('kode_kecamatan');
+            $table->integer('kode_kecamatan')->default(0);
             $table->foreignId('kecamatan_id');
             $table->timestamps();
         });

@@ -22,8 +22,13 @@ class ParameterUmumFactory extends Factory
     public function definition(): array
     {
         return [
+            'kode_parameter_umum' => $this->faker->word(),
             'nama_parameter_umum' => $this->faker->word(),
-            'satuan' => $this->faker->word()
+            'nilai' => $this->faker->numberBetween(-10000, 10000),
+            'satuan' => $this->faker->word(),
+            'tahun' => $this->faker->numberBetween(-10000, 10000),
+            'kode_desa' => $this->faker->numberBetween(-10000, 10000),
+            'desa_id' => Desa::factory(),
         ];
     }
 }
