@@ -18,7 +18,7 @@ class IndikatorSeeder extends Seeder
                 'kode_indikator' => 'IND001',
                 'nama_indikator' => 'Kondisi Bangunan Gedung',
                 'deskripsi' => ' ',
-                'persentase' => 21.33,
+                'persentase' => 21.33, 
                 'tahun' => 2023,
                 'kode_desa' => '3326192012',
                 'desa_id' => 12,
