@@ -18,14 +18,15 @@ class SubIndikator extends Model
      */
     protected $fillable = [
         'nama_sub_indikator',
-        'nilai',
+        'volume',
         'satuan',
         'persentase',
+        'nilai',
         'versi',
         'kode_indikator',
         'kode_desa',
-        'timestamp',
         'indikator_id',
+        'timestamp',
     ];
 
     /**
