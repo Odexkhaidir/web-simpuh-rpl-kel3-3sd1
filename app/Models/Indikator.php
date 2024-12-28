@@ -23,8 +23,8 @@ class Indikator extends Model
         'persentase',
         'tahun',
         'kode_desa',
-        'timestamp',
         'desa_id',
+        'timestamp',
     ];
 
     /**
