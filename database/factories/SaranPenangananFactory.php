@@ -24,7 +24,7 @@ class SaranPenangananFactory extends Factory
         return [
             'kode_saran_penanganan' => $this->faker->word(),
             'saran_penanganan' => $this->faker->text(),
-            'kode_desa' => $this->faker->numberBetween(-10000, 10000),
+            'kode_desa' => $this->faker->string(-10000, 10000),
             'desa_id' => Desa::factory(),
         ];
     }

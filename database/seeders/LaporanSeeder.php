@@ -24,6 +24,7 @@ class LaporanSeeder extends Seeder
                 'desa_id' => 12,
                 'judul' => 'Kerusakan Jalan',
                 'deskripsi' => 'Jalan utama mengalami kerusakan parah akibat banjir.',
+                'tanggal' => Carbon::now()->format('Y-m-d'),
             ],
             [
                 'kode_laporan' => 'LAP002',
@@ -35,13 +36,13 @@ class LaporanSeeder extends Seeder
                 'desa_id' => 12,
                 'judul' => 'Irigasi Tersumbat',
                 'deskripsi' => 'Saluran irigasi tidak mengalir dengan baik sehingga sawah kekeringan.',
+                'tanggal' => Carbon::now()->format('Y-m-d'),
             ],
         ];
 
         foreach ($laporans as $laporan) {
             DB::table('laporans')->insert([
                 'kode_laporan' => $laporan['kode_laporan'],
-                'timestamp' => $laporan['timestamp'],
                 'isi_laporan' => $laporan['isi_laporan'],
                 'photo_bukti' => $laporan['photo_bukti'],
                 'status_laporan' => $laporan['status_laporan'],
@@ -50,6 +51,7 @@ class LaporanSeeder extends Seeder
                 'desa_id' => $laporan['desa_id'],
                 'judul' => $laporan['judul'],
                 'deskripsi' => $laporan['deskripsi'],
+                'tanggal' => $laporan['tanggal'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

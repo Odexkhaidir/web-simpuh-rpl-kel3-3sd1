@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_saran_penanganan')->autoIncrement();
             $table->text('saran_penanganan');
-            $table->integer('kode_desa');
+            $table->string('kode_desa')->nullable();
             $table->foreignId('desa_id');
             $table->timestamps();
         });

@@ -34,17 +34,29 @@ class SaranPenangananResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('kode_saran_penanganan')
+                    ->columnSpan(2)
+                    ->label('Kode Saran Penanganan')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('desa_id')
+                    ->label('Desa')
+                    ->relationship('desa', 'nama_desa')
+                    ->required()
+                    ->placeholder('Pilih Desa...')
+                    ->reactive() // Membuat komponen ini reaktif
+                    ->afterStateUpdated(function (callable $set, $state) {
+                        // Cari desa berdasarkan ID dan isi kode_desa secara otomatis
+                        $desa = \App\Models\Desa::find($state);
+                        $set('kode_desa', $desa?->kode_desa);
+                    }),
+                Forms\Components\TextInput::make('kode_desa')
+                    ->label('Kode Desa')
+                    ->required()
+                    ->readonly(),
                 Forms\Components\Textarea::make('saran_penanganan')
+                    ->label('Saran Penanganan')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('kode_desa')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\Select::make('desa_id')
-                    ->relationship('desa', 'id')
-                    ->required(),
             ]);
     }
 
@@ -53,13 +65,18 @@ class SaranPenangananResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('kode_saran_penanganan')
+                    ->label('Kode Saran Penanganan')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('desa.nama_desa')
+                    ->label('Nama Desa')
+                    ->numeric()
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('kode_desa')
-                    ->numeric()
+                    ->label('Kode Desa')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('desa.id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('saran_penanganan')
+                    ->label('Saran Penanganan'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -69,6 +86,15 @@ class SaranPenangananResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->emptyStateActions([
+                Tables\Actions\Action::make('create')
+                    ->label('Tambah Saran Penanganan Baru')
+                    ->icon('heroicon-o-plus')
+                    ->url(static::getUrl('create'))
+            ])
+            ->emptyStateIcon('heroicon-o-chat-bubble-left-ellipsis')
+            ->emptyStateHeading('Belum Ada Saran Penanganan')
+            ->emptyStateDescription('Silakan tambahkan saran penanganan untuk memulai.')
             ->filters([
                 //
             ])

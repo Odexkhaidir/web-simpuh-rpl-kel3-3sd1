@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('isi_laporan');
             $table->string('photo_bukti');
             $table->string('status_laporan');
-            $table->integer('kode_user');
-            $table->integer('kode_desa');
+            $table->string('kode_user');
+            $table->string('kode_desa');
             $table->foreignId('desa_id');
             $table->timestamps();
             $table->string('judul');
