@@ -3,15 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SaranPenangananResource\Pages;
-use App\Filament\Resources\SaranPenangananResource\RelationManagers;
 use App\Models\SaranPenanganan;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SaranPenangananResource extends Resource
 {
@@ -27,9 +23,7 @@ class SaranPenangananResource extends Resource
 
     protected static ?string $slug = 'saran-penanganan';
 
-    protected static ?int $navigationSort = 4;
-
-    public static function form(Form $form): Form
+    public static function form(Forms\Form $form): Forms\Form
     {
         return $form
             ->schema([
@@ -38,21 +32,38 @@ class SaranPenangananResource extends Resource
                     ->label('Kode Saran Penanganan')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('kecamatan_id')
+                    ->label('Kecamatan')
+                    ->relationship('kecamatan', 'nama_kecamatan')
+                    ->required()
+                    ->placeholder('Pilih Kecamatan...')
+                    ->reactive()
+                    ->afterStateUpdated(function (callable $set) {
+                        $set('desa_id', null);
+                    }),
                 Forms\Components\Select::make('desa_id')
                     ->label('Desa')
-                    ->relationship('desa', 'nama_desa')
                     ->required()
                     ->placeholder('Pilih Desa...')
-                    ->reactive() // Membuat komponen ini reaktif
+                    ->options(function (callable $get) {
+                        $kecamatanId = $get('kecamatan_id');
+                        if (!$kecamatanId) {
+                            return [];
+                        }
+                        return \App\Models\Desa::where('kecamatan_id', $kecamatanId)->pluck('nama_desa', 'id');
+                    })
+                    ->reactive()
                     ->afterStateUpdated(function (callable $set, $state) {
-                        // Cari desa berdasarkan ID dan isi kode_desa secara otomatis
                         $desa = \App\Models\Desa::find($state);
                         $set('kode_desa', $desa?->kode_desa);
                     }),
-                Forms\Components\TextInput::make('kode_desa')
-                    ->label('Kode Desa')
-                    ->required()
-                    ->readonly(),
+                Forms\Components\Hidden::make('kode_desa') // Tetap mengirimkan data ke backend
+                    ->afterStateHydrated(function (callable $set, $state) {
+                        // Tetap memuat nilai awal dari kode desa
+                        if ($state) {
+                            $set('kode_desa', $state);
+                        }
+                    }),
                 Forms\Components\Textarea::make('saran_penanganan')
                     ->label('Saran Penanganan')
                     ->required()
@@ -60,59 +71,43 @@ class SaranPenangananResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
+    public static function table(Tables\Table $table): Tables\Table
     {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('kode_saran_penanganan')
                     ->label('Kode Saran Penanganan')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('kecamatan.nama_kecamatan')
+                    ->label('Nama Kecamatan')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('desa.nama_desa')
                     ->label('Nama Desa')
-                    ->numeric()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('kode_desa')
-                    ->label('Kode Desa')
-                    ->sortable(),
+                    ->label('Kode Desa') // Tetap menampilkan di tabel
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('saran_penanganan')
                     ->label('Saran Penanganan'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->emptyStateActions([
-                Tables\Actions\Action::make('create')
-                    ->label('Tambah Saran Penanganan Baru')
-                    ->icon('heroicon-o-plus')
-                    ->url(static::getUrl('create'))
-            ])
-            ->emptyStateIcon('heroicon-o-chat-bubble-left-ellipsis')
-            ->emptyStateHeading('Belum Ada Saran Penanganan')
-            ->emptyStateDescription('Silakan tambahkan saran penanganan untuk memulai.')
-            ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

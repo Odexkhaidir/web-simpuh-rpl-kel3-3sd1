@@ -10,30 +10,27 @@ class SaranPenanganan extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'kode_saran_penanganan',
         'saran_penanganan',
         'kode_desa',
         'desa_id',
+        'kecamatan_id',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'id' => 'integer',
         'desa_id' => 'integer',
+        'kecamatan_id' => 'integer',
     ];
 
     public function desa(): BelongsTo
     {
         return $this->belongsTo(Desa::class);
+    }
+
+    public function kecamatan(): BelongsTo
+    {
+        return $this->belongsTo(Kecamatan::class);
     }
 }
