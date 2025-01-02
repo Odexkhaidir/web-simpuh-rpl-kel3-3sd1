@@ -6,50 +6,52 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class LaporanSeeder extends Seeder
+class SaranPenangananSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $laporans = [
+        $saranPenanganans = [
             [
-                'kode_laporan' => 'LAP001',
-                'isi_laporan' => 'Kerusakan jalan utama di Desa Api-api',
-                'photo_bukti' => 'photos/jalan_rusak.jpg',
-                'status_laporan' => 'Pending',
-                'kode_user' => 'USR001',
-                'kode_desa' => '3326192012',
-                'desa_id' => 12,
-                'judul' => 'Kerusakan Jalan',
-                'deskripsi' => 'Jalan utama mengalami kerusakan parah akibat banjir.',
+                'kode_saran_penanganan' => 'SP001',
+                'desa_id' => 1, // Sesuaikan dengan ID desa yang ada di tabel desas
+                'kode_desa' => '3326012001',
+                'saran_penanganan' => 'Perbaikan jalan utama di Desa Klesem.',
             ],
             [
-                'kode_laporan' => 'LAP002',
-                'isi_laporan' => 'Saluran irigasi tersumbat di area persawahan.',
-                'photo_bukti' => 'photos/irigasi_tersumbat.jpg',
-                'status_laporan' => 'Selesai',
-                'kode_user' => 'USR002',
-                'kode_desa' => '3326192012',
-                'desa_id' => 12,
-                'judul' => 'Irigasi Tersumbat',
-                'deskripsi' => 'Saluran irigasi tidak mengalir dengan baik sehingga sawah kekeringan.',
+                'kode_saran_penanganan' => 'SP002',
+                'desa_id' => 2,
+                'kode_desa' => '3326012002',
+                'saran_penanganan' => 'Pengadaan saluran air bersih di Desa Bodas.',
+            ],
+            [
+                'kode_saran_penanganan' => 'SP003',
+                'desa_id' => 3,
+                'kode_desa' => '3326012003',
+                'saran_penanganan' => 'Pembangunan drainase di Desa Sukoharjo.',
+            ],
+            [
+                'kode_saran_penanganan' => 'SP004',
+                'desa_id' => 4,
+                'kode_desa' => '3326012004',
+                'saran_penanganan' => 'Pengelolaan sampah terpadu di Desa Gembong.',
+            ],
+            [
+                'kode_saran_penanganan' => 'SP005',
+                'desa_id' => 5,
+                'kode_desa' => '3326012005',
+                'saran_penanganan' => 'Perbaikan fasilitas umum di Desa Garungwiyoro.',
             ],
         ];
 
-        foreach ($laporans as $laporan) {
-            DB::table('laporans')->insert([
-                'kode_laporan' => $laporan['kode_laporan'],
-                'timestamp' => $laporan['timestamp'],
-                'isi_laporan' => $laporan['isi_laporan'],
-                'photo_bukti' => $laporan['photo_bukti'],
-                'status_laporan' => $laporan['status_laporan'],
-                'kode_user' => $laporan['kode_user'],
-                'kode_desa' => $laporan['kode_desa'],
-                'desa_id' => $laporan['desa_id'],
-                'judul' => $laporan['judul'],
-                'deskripsi' => $laporan['deskripsi'],
+        foreach ($saranPenanganans as $saranPenanganan) {
+            DB::table('saran_penanganans')->insert([
+                'kode_saran_penanganan' => $saranPenanganan['kode_saran_penanganan'],
+                'desa_id' => $saranPenanganan['desa_id'],
+                'kode_desa' => $saranPenanganan['kode_desa'],
+                'saran_penanganan' => $saranPenanganan['saran_penanganan'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

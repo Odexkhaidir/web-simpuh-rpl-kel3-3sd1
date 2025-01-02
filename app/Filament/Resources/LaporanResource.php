@@ -27,7 +27,7 @@ class LaporanResource extends Resource
     protected static ?string $pluralModelLabel = 'Laporan Masyarakat';
 
     protected static ?string $slug = 'laporan';
-    
+
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
@@ -47,11 +47,9 @@ class LaporanResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('kode_user')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
                 Forms\Components\TextInput::make('kode_desa')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
                 Forms\Components\Select::make('desa_id')
                     ->relationship('desa', 'id')
                     ->required(),
@@ -73,23 +71,9 @@ class LaporanResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('kode_laporan')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('timestamp')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('isi_laporan')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('photo_bukti')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('status_laporan')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('kode_user')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('kode_desa')
-                    ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('desa.id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('desa.nama_desa')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('judul')
                     ->label('Judul')
@@ -98,8 +82,17 @@ class LaporanResource extends Resource
                 Tables\Columns\TextColumn::make('deskripsi')
                     ->label('Deskripsi')
                     ->limit(50),
+                Tables\Columns\TextColumn::make('isi_laporan')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('photo_bukti')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal'),
+                Tables\Columns\TextColumn::make('status_laporan')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('kode_user')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
