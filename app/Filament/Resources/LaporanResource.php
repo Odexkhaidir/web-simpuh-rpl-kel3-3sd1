@@ -132,7 +132,7 @@ class LaporanResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLaporan::route('/'),
+            // 'index' => Pages\ListLaporan::route('/'),
             'create' => Pages\CreateLaporan::route('/create'),
             'edit' => Pages\EditLaporan::route('/{record}/edit'),
         ];

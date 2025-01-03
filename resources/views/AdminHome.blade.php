@@ -16,7 +16,7 @@
             background-size: cover; /* Menutupi area sepenuhnya */
             background-position: center; /* Menyesuaikan posisi */
             padding: 200px 0;
-            color: white;
+            color: #004d40;
             text-align: center;
             overflow: hidden; /* Mencegah elemen overlay keluar dari batas */
         }
@@ -28,8 +28,8 @@
             left: 0;
             width: 100%; /* Menutupi seluruh lebar */
             height: 100%; /* Menutupi seluruh tinggi */
-            background-color:  #004d40;
-            opacity: 70%;
+            background-color: white;
+            opacity: 60%;
             z-index: 1; /* Memastikan berada di atas gambar */
         }
 
@@ -61,10 +61,27 @@
         }
         
         .navbar-nav .nav-link.active {
-            color: yellow !important; /* Warna untuk menu aktif */
+            color: white !important; /* Warna untuk menu aktif */
+            position: relative; /* Dibutuhkan untuk pseudo-element */
+            display: inline-block; /* Pastikan elemen tidak menggunakan width 100% */
         }
+
+        .navbar-nav .nav-link.active::after {
+            content: ''; /* Konten kosong untuk pseudo-element */
+            position: absolute; /* Posisikan relatif terhadap elemen induk */
+            bottom: 0; /* Tepat di bawah teks */
+            left: 0;
+            width: 100%; /* Panjang garis mengikuti teks */
+            height: 3px; /* Ketebalan garis */
+            background-color: orange; /* Warna garis */
+        }
+
         .container.my-5 {
             margin-top: 2.2rem !important; 
+        }
+
+        .form-control {
+            border: 2px solid;
         }
         .card {
             width: 18rem;
@@ -220,6 +237,9 @@
             margin-top: 5px;
           }
 
+        .row {
+            justify-content: space-evenly;
+        }
         footer {
             background-color: #004d40;
             color: white;
@@ -244,20 +264,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Beranda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tabel Statistik</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profil Dinperkim
+                            Data
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Informasi Umum</a></li>
-                            <li><a class="dropdown-item" href="#">Visi Misi</a></li>
-                            <li><a class="dropdown-item" href="#">Program Dinperkim</a></li>
+                            <li><a class="dropdown-item" href="#">Statistik Desa</a></li>
+                            <li><a class="dropdown-item" href="#">Parameter Kumuh</a></li>
                         </ul>
                     </li>
-                    <!-- Ikon Profil -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">Masuk</a>
                     </li>
@@ -269,124 +284,21 @@
     
     <div class="hero-section">
         <div class="container">
-            <h1>Sistem Monitoring Penanganan Kumuh (SIMPUH)</h1>
-            <h2>Kabupaten Pekalongan</h2>
+            <h1>Selamat Datang, Nama Admin!</h1>
+            <h3>Pemetaan Wilayah Kumuh di Kabupaten Pekalongan</h3>
             <div class="mt-4">
                 <input type="text" class="form-control d-inline-block w-50" placeholder="Cari Desa atau Kecamatan">
             </div>
         </div>
     </div>
 
-    <div class="container my-5">
-        <div id="iconBoxCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-center">
-                        <div class="card text-center mx-2 shadow-sm">
-                            <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4 0h8a2 2 0 0 1 2 2v14h-3v-4H5v4H2V2a2 2 0 0 1 2-2zM4 1a1 1 0 0 0-1 1v13h2v-4h6v4h2V2a1 1 0 0 0-1-1H4z"/>
-                                    <path d="M6 4h1v1H6V4zm3 0h1v1H9V4zm-3 2h1v1H6V6zm3 0h1v1H9V6zm-3 2h1v1H6V8zm3 0h1v1H9V8zm-3 2h1v1H6v-1zm3 0h1v1H9v-1z"/>
-                                </svg>
-                                <h5 class="card-title">Bangunan Gedung</h5>
-                                <h2 class="display-5">102,08</h2>
-                                <p>November 2024</p>
-                            </div>
-                        </div>
-                        <div class="card text-center mx-2 shadow-sm">
-                            <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-road-horizontal" viewBox="0 0 16 16">
-                                    <rect x="0" y="5" width="16" height="6" fill="black" />
-                                    <line x1="2" y1="8" x2="4" y2="8" stroke="white" stroke-width="1" />
-                                    <line x1="6" y1="8" x2="8" y2="8" stroke="white" stroke-width="1" />
-                                    <line x1="10" y1="8" x2="12" y2="8" stroke="white" stroke-width="1" />
-                                    <line x1="14" y1="8" x2="16" y2="8" stroke="white" stroke-width="1" />
-                                </svg>
-                                <h5 class="card-title">Jalan Lingkungan</h5>
-                                <h2 class="display-5">1,55 Persen</h2>
-                                <p>November 2024</p>
-                            </div>
-                        </div>
-                        <div class="card text-center mx-2 shadow-sm">
-                            <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-                                    <rect x="4" y="4" width="8" height="8" fill="black" />
-                                    <rect x="4.5" y="6" width="7" height="6" fill="white" />
-                                    <path d="M12 6a2 2 0 0 1 2 2 2 2 0 0 1-2 2V6z" fill="black" />
-                                </svg>                                                  
-                                <h5 class="card-title">Penyediaan Air Minum</h5>
-                                <h2 class="display-5">4,95 Persen</h2>
-                                <p>Triwulan III 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-center">
-                        <div class="card text-center mx-2 shadow-sm">
-                            <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-                                    <rect x="3" y="4" width="10" height="8" fill="black" />
-                                    <line x1="4" y1="7" x2="12" y2="7" stroke="white" stroke-width="0.5" />
-                                    <line x1="4" y1="9" x2="12" y2="9" stroke="white" stroke-width="0.5" />
-                                    <circle cx="6" cy="8" r="0.5" fill="white" />
-                                    <circle cx="8" cy="8" r="0.5" fill="white" />
-                                    <circle cx="10" cy="8" r="0.5" fill="white" />
-                                </svg>
-                                                        
-                                <h5 class="card-title">Drainase Lingkungan</h5>
-                                <h2 class="display-5">9,03 Persen</h2>
-                                <p>Maret 2024</p>
-                            </div>
-                        </div>
-                        <div class="card text-center mx-2 shadow-sm">
-                            <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M4 2h8v10H4z" fill="black" />
-                                    <path d="M7.5 5a1 1 0 1 1 2 0 1 1 0 1 1-2 0z" fill="white" />
-                                    <path d="M7.5 7c0 .828.448 1.5 1 1.5s1-.672 1-1.5-.448-1-1-1-1 .172-1 1z" fill="white" />
-                                </svg>                          
-                                <h5 class="card-title">Pengelolaan Air Limbah</h5>
-                                <h2 class="display-5">4,82 Persen</h2>
-                                <p>Februari 2024</p>
-                            </div>
-                        </div>
-                        <div class="card text-center mx-2 shadow-sm">
-                            <div class="card-body">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-                                    <rect x="4" y="2" width="8" height="1" fill="black" />
-                                    <rect x="5" y="3" width="6" height="10" fill="black" />
-                                    <line x1="6" y1="4" x2="6" y2="12" stroke="white" stroke-width="0.5" />
-                                    <line x1="8" y1="4" x2="8" y2="12" stroke="white" stroke-width="0.5" />
-                                    <line x1="10" y1="4" x2="10" y2="12" stroke="white" stroke-width="0.5" />
-                                </svg>
-                                
-                                <h5 class="card-title">Pengelolaan Persampahan</h5>
-                                <h2 class="display-5">4,82 Persen</h2>
-                                <p>Februari 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#iconBoxCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#iconBoxCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-
-    <section class="stats-section bg-light">
+    <section class="stats-section bg-light my-5">
         <div class="container">
-            <h2 class="text-center mb-4">Statistik Informasi Persebaran Kawasan Kumuh</h2>
+            <h2 class="text-center mb-4">Statistik Informasi Persebaran Kawasan Kumuh Kabupaten Pekalongan</h2>
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <h3>1,234</h3>
-                    <p>Jumlah Kawasan Kumuh</p>
+                <h3><?php echo isset($jumlahKumuh) ? number_format($jumlahKumuh) : 'Data tidak tersedia'; ?></h3>
+                <p>Jumlah Kawasan Kumuh <br>Tahun <?php echo isset($currentYear) ? $currentYear : 'N/A'; ?></p>
                 </div>
                 <div class="col-md-4 text-center">
                     <img src="/path/to/piechart.png" alt="Pie Chart" class="img-fluid">
@@ -400,7 +312,6 @@
 
     <section class="program-section">
         <div class="container">
-            <h2 class="text-center mb-4">Program Kerja DINPERKIM & LH Kabupaten Pekalongan</h2>
             <div class="row">
                 <div class="col-md-3">
                     <div class="custom-box">
@@ -410,16 +321,6 @@
                 <div class="col-md-3">
                     <div class="custom-box">
                         <img src="/path/to/image2.jpg" alt="Program 2" class="img-fluid custom-image">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="custom-box">
-                        <img src="/path/to/image3.jpg" alt="Program 3" class="img-fluid custom-image">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="custom-box">
-                        <img src="/path/to/image4.jpg" alt="Program 4" class="img-fluid custom-image">
                     </div>
                 </div>
             </div>

@@ -23,10 +23,7 @@ class SubIndikator extends Model
         'persentase',
         'versi',
         'kode_indikator',
-<<<<<<< HEAD
-=======
         'kode_desa',
->>>>>>> main
         'timestamp',
         'indikator_id',
     ];

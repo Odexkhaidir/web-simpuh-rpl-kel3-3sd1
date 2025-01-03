@@ -105,6 +105,24 @@ class OutputKekumuhanSeeder extends Seeder
                 'kode_desa' => '332601010',
                 'desa_id' => 10,
             ],
+            [
+                'kode_output' => '011',
+                'indeks_kumuh' => 15,
+                'status_kumuh' => 'Tidak',
+                'kontribusi_penanganan' => 20.75,
+                'tahun' => 2024,
+                'kode_desa' => '332601010',
+                'desa_id' => 11,
+            ],
+            [
+                'kode_output' => '012',
+                'indeks_kumuh' => 10,
+                'status_kumuh' => 'Tidak',
+                'kontribusi_penanganan' => 12.75,
+                'tahun' => 2024,
+                'kode_desa' => '332601010',
+                'desa_id' => 12,
+            ],
         ];
 
         // Insert data ke tabel output_kekumuhans
