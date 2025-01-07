@@ -88,7 +88,7 @@ class IndikatorSeeder extends Seeder
                 'tahun' => $indikator['tahun'],
                 'kode_desa' => $indikator['kode_desa'],
                 'desa_id' => $indikator['desa_id'],
-                'timestamp' => $indikator['timestamp'],
+                'timestamp' => $indikator['timestamp'] ?? Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

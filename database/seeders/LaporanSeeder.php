@@ -19,7 +19,7 @@ class LaporanSeeder extends Seeder
                 'isi_laporan' => 'Kerusakan jalan utama di Desa Api-api',
                 'photo_bukti' => 'photos/jalan_rusak.jpg',
                 'status_laporan' => 'Pending',
-                'kode_user' => 'USR001',
+                'kode_user' => '003',
                 'kode_desa' => '3326192012',
                 'desa_id' => 12,
                 'judul' => 'Kerusakan Jalan',
@@ -30,7 +30,7 @@ class LaporanSeeder extends Seeder
                 'isi_laporan' => 'Saluran irigasi tersumbat di area persawahan.',
                 'photo_bukti' => 'photos/irigasi_tersumbat.jpg',
                 'status_laporan' => 'Selesai',
-                'kode_user' => 'USR002',
+                'kode_user' => '002',
                 'kode_desa' => '3326192012',
                 'desa_id' => 12,
                 'judul' => 'Irigasi Tersumbat',
@@ -41,7 +41,7 @@ class LaporanSeeder extends Seeder
         foreach ($laporans as $laporan) {
             DB::table('laporans')->insert([
                 'kode_laporan' => $laporan['kode_laporan'],
-                'timestamp' => $laporan['timestamp'],
+                'timestamp' => $laporan['timestamp'] ?? Carbon::now(),
                 'isi_laporan' => $laporan['isi_laporan'],
                 'photo_bukti' => $laporan['photo_bukti'],
                 'status_laporan' => $laporan['status_laporan'],

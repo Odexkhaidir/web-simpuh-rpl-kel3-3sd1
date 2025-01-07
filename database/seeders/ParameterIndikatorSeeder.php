@@ -13,43 +13,33 @@ class ParameterIndikatorSeeder extends Seeder
      */
     public function run(): void
     {
-        $parameterIndikators = [
+        $parameters = [
             [
-                'kode_laporan' => 'LAP001',
-                'isi_laporan' => 'Kerusakan jalan utama di Desa Api-api',
-                'photo_bukti' => 'photos/jalan_rusak.jpg',
-                'status_laporan' => 'Pending',
-                'kode_user' => 'USR001',
-                'kode_desa' => '3326192012',
-                'desa_id' => 12,
-                'judul' => 'Kerusakan Jalan',
-                'deskripsi' => 'Jalan utama mengalami kerusakan parah akibat banjir.',
+                'nama_parameter_indikator' => 'Jumlah Sekolah Dasar',
+                'nilai' => 15,
+                'satuan' => 'unit',
+                'kode_indikator' => 'IND001',
+                'nama_sub_indikator' => 'Fasilitas Pendidikan',
+                'nama_indikator' => 'Pendidikan',
             ],
             [
-                'kode_laporan' => 'LAP002',
-                'isi_laporan' => 'Saluran irigasi tersumbat di area persawahan.',
-                'photo_bukti' => 'photos/irigasi_tersumbat.jpg',
-                'status_laporan' => 'Selesai',
-                'kode_user' => 'USR002',
-                'kode_desa' => '3326192012',
-                'desa_id' => 12,
-                'judul' => 'Irigasi Tersumbat',
-                'deskripsi' => 'Saluran irigasi tidak mengalir dengan baik sehingga sawah kekeringan.',
+                'nama_parameter_indikator' => 'Tingkat Kemiskinan',
+                'nilai' => 10,
+                'satuan' => '%',
+                'kode_indikator' => 'IND002',
+                'nama_sub_indikator' => 'Indikator Sosial',
+                'nama_indikator' => 'Kesejahteraan Sosial',
             ],
         ];
 
-        foreach ($parameterIndikators as $parameterIndikator) {
-            DB::table('laporans')->insert([
-                'kode_laporan' => $parameterIndikator['kode_laporan'],
-                'timestamp' => $parameterIndikator['timestamp'],
-                'isi_laporan' => $parameterIndikator['isi_laporan'],
-                'photo_bukti' => $parameterIndikator['photo_bukti'],
-                'status_laporan' => $parameterIndikator['status_laporan'],
-                'kode_user' => $parameterIndikator['kode_user'],
-                'kode_desa' => $parameterIndikator['kode_desa'],
-                'desa_id' => $parameterIndikator['desa_id'],
-                'judul' => $parameterIndikator['judul'],
-                'deskripsi' => $parameterIndikator['deskripsi'],
+        foreach ($parameters as $parameter) {
+            DB::table('parameter_indikators')->insert([
+                'nama_parameter_indikator' => $parameter['nama_parameter_indikator'],
+                'nilai' => $parameter['nilai'],
+                'satuan' => $parameter['satuan'],
+                'kode_indikator' => $parameter['kode_indikator'],
+                'nama_sub_indikator' => $parameter['nama_sub_indikator'],
+                'nama_indikator' => $parameter['nama_indikator'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

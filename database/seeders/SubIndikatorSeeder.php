@@ -206,7 +206,7 @@ class SubIndikatorSeeder extends Seeder
         ];
 
         foreach ($subIndikators as $subIndikator) {
-            DB::table('subIndikators')->insert([
+            DB::table('sub_indikators')->insert([
                 'kode_sub_indikator' => $subIndikator['kode_sub_indikator'],
                 'nama_sub_indikator' => $subIndikator['nama_sub_indikator'],
                 'volume' => $subIndikator['volume'],
@@ -216,7 +216,7 @@ class SubIndikatorSeeder extends Seeder
                 'versi' => $subIndikator['versi'],
                 'kode_indikator' => $subIndikator['kode_indikator'],
                 'indikator_id' => $subIndikator['indikator_id'],
-                'timestamp' => $subIndikator['timestamp'],
+                'timestamp' => $subIndikator['timestamp'] ?? Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
