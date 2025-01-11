@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
             overflow-x: hidden; 
@@ -187,11 +188,19 @@
         }
         
         .custom-image {
-            width: 100%; 
-            height: auto; 
-            border-radius: 10px; 
+        width: 100%;        
+        height: 200px;      
+        object-fit: cover;  
         }
-        
+
+        .row {
+            justify-content: center; /* Untuk memusatkan gambar di tengah */
+        }
+
+        .col-md-2 {
+            justify-content: center; /* Untuk memastikan gambar berada di tengah kolom */
+        }
+            
         .sticky-icon {
             position: fixed;
             bottom: 20px;
@@ -458,33 +467,117 @@
 
     <section class="program-section">
         <div class="container">
-            <h2 class="text-center mb-4">Program Kerja DINPERKIM & LH Kabupaten Pekalongan</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="custom-box">
-                        <img src="/path/to/image1.jpg" alt="Program 1" class="img-fluid custom-image">
+            <h2 class="text-center mb-5">Program Kerja DINPERKIM & LH Kabupaten Pekalongan</h2>
+    
+            <!-- Carousel -->
+            <div id="programCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker1.jpeg" alt="Program 1" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker2.jpeg" alt="Program 2" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker3.jpeg" alt="Program 3" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker4.jpeg" alt="Program 4" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker5.jpeg" alt="Program 5" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker6.jpeg" alt="Program 6" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker7.jpeg" alt="Program 7" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker8.jpeg" alt="Program 8" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker9.jpeg" alt="Program 9" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker10.jpeg" alt="Program 10" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker11.jpeg" alt="Program 11" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker12.jpeg" alt="Program 12" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker13.jpeg" alt="Program 13" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker14.jpeg" alt="Program 14" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                            <div class="col-md-2 px-2">
+                                <div class="custom-box">
+                                    <img src="images/Proker15.jpeg" alt="Program 15" class="img-fluid custom-image">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="custom-box">
-                        <img src="/path/to/image2.jpg" alt="Program 2" class="img-fluid custom-image">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="custom-box">
-                        <img src="/path/to/image3.jpg" alt="Program 3" class="img-fluid custom-image">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="custom-box">
-                        <img src="/path/to/image4.jpg" alt="Program 4" class="img-fluid custom-image">
-                    </div>
-                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#programCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#programCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
+            <!-- End Carousel -->
         </div>
     </section>
     
-
     <div class="sticky-icon">
         <div class="icon-content">
           <span class="text">LAPOR PUH !!</span>

@@ -52,6 +52,6 @@ class OutputKekumuhanController extends Controller
 
         
         // Kirimkan data ke view
-        return view('Home', compact('totalKumuh', 'chartData', 'latestYear', 'years', 'totals'));
+        return view('livewire.home', compact('totalKumuh', 'chartData', 'latestYear', 'years', 'totals'));
     }
 }
